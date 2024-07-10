@@ -9,7 +9,7 @@ import scipy.io as scio
 from PIL import Image
 
 import torch
-import collections.abc as container_abcs
+
 from torch.utils.data import Dataset
 from tqdm import tqdm
 
@@ -36,15 +36,15 @@ class GraspNetDataset(Dataset):
         self.collision_labels = {}
 
         if split == 'train':
-            self.sceneIds = list( range(100) )
+            self.sceneIds = list( range(90,94) )
         elif split == 'test':
-            self.sceneIds = list( range(100,190) )
+            self.sceneIds = list( range(94,95) )
         elif split == 'test_seen':
-            self.sceneIds = list( range(100,130) )
+            self.sceneIds = list( range(95,96) )
         elif split == 'test_similar':
-            self.sceneIds = list( range(130,160) )
+            self.sceneIds = list( range(96,98) )
         elif split == 'test_novel':
-            self.sceneIds = list( range(160,190) )
+            self.sceneIds = list( range(98,100) )
         self.sceneIds = ['scene_{}'.format(str(x).zfill(4)) for x in self.sceneIds]
         
         self.colorpath = []
